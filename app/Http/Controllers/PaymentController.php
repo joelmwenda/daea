@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -24,7 +25,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.payments');
     }
 
     /**
@@ -35,7 +36,12 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payment = new Payment;
+        $payment->fill($request->except('_token'));
+        if(!$payment->user_id) $payment->user_id = auth()->user()->id; 
+        $payment->save();
+        session(['toast_message' => 'The payment has been saved.']);
+        return back();        
     }
 
     /**

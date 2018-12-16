@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Income;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller

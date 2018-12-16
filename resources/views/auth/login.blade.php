@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AIU | Login</title>
+    <title>DAEA | Login</title>
 
     <!-- Custom Fonts -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -26,10 +26,10 @@
         <div>
             <div>
 
-                <h1 class="logo-name">AIU</h1>
+                <h1 class="logo-name">DAEA</h1>
 
             </div>
-            <h3>Welcome to AIU Academic Management System</h3>
+            <h3>Welcome to DAEA</h3>
 
 
             <form class="m-t" role="form" method="POST" action="{{ route('login') }}">

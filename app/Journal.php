@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Journal extends Model
+class Journal extends BaseModel
 {
     //
 }

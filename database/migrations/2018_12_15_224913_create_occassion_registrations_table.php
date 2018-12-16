@@ -13,11 +13,11 @@ class CreateOccassionRegistrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('occassion_registrations', function (Blueprint $table) {
+        Schema::create('occasion_registrations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('occassion_id')->unsigned();
+            $table->integer('occasion_id')->unsigned();
             $table->integer('deduction_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            // $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateOccassionRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('occassion_registrations');
+        Schema::dropIfExists('occasion_registrations');
     }
 }

@@ -12,8 +12,13 @@ class LookupsSeeder extends Seeder
     public function run()
     {
 
+    	DB::table('fees')->insert([
+		    ['id' => 1, 'fee' => 'Registration/Renewal', 'fee_amount' => 5000],
+
+		]);
+
         DB::table('result_codes')->insert([
-		    ['id' => 0, 'result_code' => 'Success'],
+		    // ['id' => 0, 'result_code' => 'Success'],
 		    ['id' => 1, 'result_code' => 'Insufficient Funds'],
 		    ['id' => 2, 'result_code' => 'Less Than Minimum Transaction Value'],
 		    ['id' => 3, 'result_code' => 'More Than Maximum Transaction Value'],

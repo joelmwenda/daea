@@ -15,7 +15,7 @@ class CreateRegistrationsTable extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            // $table->integer('user_id')->unsigned();
             $table->integer('deduction_id')->unsigned();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

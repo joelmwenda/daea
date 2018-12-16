@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JournalPurchase;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class JournalPurchaseController extends Controller

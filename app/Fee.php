@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Fee extends Model
+class Fee extends BaseModel
 {
     //
 }

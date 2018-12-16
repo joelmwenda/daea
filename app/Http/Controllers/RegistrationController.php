@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Registration;
+use App\Deduction;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -24,7 +26,21 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        //
+        $id = auth()->user()->id;
+        $deduction = new Deduction;
+        $deduction->user_id = $id;
+        $deduction->deduction_amount = 5000;
+        $save = $deduction->pre_save();
+
+        if($save){
+            $registration = Registration::create([
+                'deduction_id' => $deduction->id,
+                'start_date' => date('Y-m-d'),
+                'end_date' => date('Y-m-d', strtotime('+1 year')),
+            ]);
+            session(['toast_message' => 'You now have an active membership until ' . $registration->end_date]);
+        }
+        return back();
     }
 
     /**

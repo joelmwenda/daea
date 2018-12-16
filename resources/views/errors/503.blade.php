@@ -1,47 +1,44 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Be right back.</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+<head>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato', sans-serif;
-            }
+    <title>AIU | 503 Error</title>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+    
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+    <!-- Custom Fonts -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
 
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
-            </div>
+</head>
+
+<body class="gray-bg">
+
+
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>503</h1>
+        <h3 class="font-bold">Be right back.</h3>
+
+        <div class="error-desc">
+            Sorry, the website is currently undergoing maintenance.
+            
         </div>
-    </body>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+</body>
+
+
 </html>

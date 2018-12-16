@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Deduction;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class DeductionController extends Controller

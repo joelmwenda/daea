@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fee;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class FeeController extends Controller

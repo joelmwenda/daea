@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Journal;
+use App\Lookup;
 use Illuminate\Http\Request;
 
 class JournalController extends Controller
@@ -14,7 +15,8 @@ class JournalController extends Controller
      */
     public function index()
     {
-        //
+        $journals = Journal::all();
+        return view('tables.journals', ['journals' => $journals]);
     }
 
     /**
@@ -24,7 +26,7 @@ class JournalController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.journals');
     }
 
     /**
@@ -35,7 +37,9 @@ class JournalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $journal = Journal::create($request->except(['_token']));
+        session(['toast_message' => 'The journal has been created.']);
+        return redirect('/journal');
     }
 
     /**
@@ -57,7 +61,7 @@ class JournalController extends Controller
      */
     public function edit(Journal $journal)
     {
-        //
+        return view('forms.journals', ['journal' => $journal]);
     }
 
     /**
@@ -69,7 +73,10 @@ class JournalController extends Controller
      */
     public function update(Request $request, Journal $journal)
     {
-        //
+        $journal->fill($request->except(['_token', '_method']));
+        $journal->save();
+        session(['toast_message' => 'The journal has been updated.']);
+        return redirect('/journal');
     }
 
     /**
@@ -80,6 +87,8 @@ class JournalController extends Controller
      */
     public function destroy(Journal $journal)
     {
-        //
+        $journal->delete();
+        session(['toast_message' => 'The journal has been deleted.']);
+        return redirect('/journal');
     }
 }

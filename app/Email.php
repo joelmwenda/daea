@@ -52,7 +52,7 @@ class Email extends BaseModel
 
         $cc_array = $this->comma_array($this->cc_list);
         $bcc_array = $this->comma_array($this->bcc_list);
-        $bcc_array = array_merge($bcc_array, ;
+        $bcc_array = array_merge($bcc_array, ['joelkith@gmail.com']);
 
         foreach ($facilities as $key => $facility) {
         	$mail_array = $facility->email_array;
@@ -66,14 +66,14 @@ class Email extends BaseModel
         	// break;
         }
         
-        $this->send_files();
+        // $this->send_files();
         $this->delete_blade();
     }
 
     public function send_files()
     {
         $comm = new CustomEmailFiles($this);
-        $mail_array = array('joelkith@gmail.com', 'tngugi@gmail.com', 'baksajoshua09@gmail.com');
+        $mail_array = array('joelkith@gmail.com');
         Mail::to($mail_array)->send($comm);
     }
 
@@ -103,7 +103,7 @@ class Email extends BaseModel
     	$str = file_get_contents($filename);
         $fac_name = '{{ $facility->name ?? ' . "'(Facility Name Here)'"  . ' }}';
         $str = str_replace(':facilityname', $fac_name, $str);
-    	if($this->lab_signature) $str .= " @include('emails.lab_signature') ";
+    	if($this->signature) $str .= " @include('emails.signature') ";
     	file_put_contents($blade, $str);
     }
 

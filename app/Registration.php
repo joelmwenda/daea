@@ -2,9 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Registration extends Model
+class Registration extends BaseModel
 {
-    //
+
+	
+
+    public function deduction()
+    {
+        return $this->belongsTo('App\Deduction');
+    }
 }

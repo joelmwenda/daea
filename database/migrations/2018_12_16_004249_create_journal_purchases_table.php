@@ -16,7 +16,7 @@ class CreateJournalPurchasesTable extends Migration
         Schema::create('journal_purchases', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('deduction_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            // $table->integer('user_id')->unsigned();
             $table->integer('journal_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

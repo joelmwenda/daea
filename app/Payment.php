@@ -2,9 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Payment extends Model
+class Payment extends BaseModel
 {
-    //
+	
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

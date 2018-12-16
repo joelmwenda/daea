@@ -15,9 +15,10 @@ class CreateOccasionsTable extends Migration
     {
         Schema::create('occasions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('occassion', 35)->index();
-            $table->string('occassion_details')->nullable();
-            $table->date('occassion_date')->nullable();
+            $table->string('occasion', 35)->index();
+            $table->string('occasion_details')->nullable();
+            $table->date('registration_deadline')->nullable();
+            $table->date('occasion_date')->nullable();
             $table->integer('member_price')->nullable();
             $table->integer('nonmember_price')->nullable();
             $table->timestamps();

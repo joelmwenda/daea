@@ -14,11 +14,19 @@ class BaseModel extends Model
     protected $historyLimit = 500; 
 
     protected $guarded = [];
+    protected $dates = ['deleted_at'];
+
 
     public function my_date_format($value, $format='d-M-Y')
     {
         if($this->$value) return date($format, strtotime($this->$value));
 
         return '';
+    }
+
+    public function get_boolean($value)
+    {
+        if($this->$value) return 'True';
+        return 'False';
     }
 }

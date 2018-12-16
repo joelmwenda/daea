@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AIU</title>
+    <title>DAEA</title>
 
     <!-- Custom Fonts -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -51,262 +51,39 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        AIU
+                        DAEA
                     </div>
                 </li>
 
             @section('sidebar')
                    
-            @auth     
+            @auth   
 
-                @if(auth()->user()->user_type_id < 4)
-                
-                    <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> <span class="nav-label">Users</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/user/create')}}">Create User</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/student/create')}}">Create Student</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/user')}}">View Users</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/student/search')}}">Search for Student</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/lecturer/failed_students')}}">View Failed Students</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                @if(!auth()->user()->is_member)  
 
                     <li>
-                        <a href="#"><i class="fa fa-glide-g fa-fw"></i> <span class="nav-label">Grades</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/grade/create')}}">Create Grade</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/grade')}}">View Grades</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-hourglass fa-fw"></i> <span class="nav-label">Semesters</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/semester/create')}}">Create Semester</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/semester')}}">View Semesters</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-institution fa-fw"></i> <span class="nav-label">Departments</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/department/create')}}">Create Department</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/department')}}">View Departments</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-mortar-board fa-fw"></i><span class="nav-label">Degrees</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li style="display: none;">
-                                <a href="{{ url('/degree_type/create')}}">Create Degree Type</a>
-                            </li>
-                            <li style="display: none;">
-                                <a href="{{ url('/degree_type')}}">View Degree Types</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/degree/create')}}">Create Degree</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/degree')}}">View Degrees</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/curriculum/create')}}">Create Curriculum</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/curriculum')}}">View Curriculi</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/specialisation/create')}}">Create Specialisation</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/specialisation')}}">View Specialisations</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/degree_course/create')}}">Add Courses to Curriculum</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/degree_course')}}">View Curriculi Courses</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-blind fa-fw"></i> <span class="nav-label">Intakes</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/intake/create')}}">Create Intake</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/intake')}}">View Intakes</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/intake/intake_course')}}">Register Intake for Courses</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/intake/intake_fee')}}">Charge Fee to Intake</a>
-                            </li>
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-clone fa-fw"></i> <span class="nav-label">Courses</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li>
-                                <a href="{{ url('/course_type/create')}}">Create Course Type</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/course_type')}}">View Course Types</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/course/create')}}">Create Course</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/course')}}">View Courses</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/course_year/create')}}">Make Course Active</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/course_year')}}">View Activated Courses</a>
-                            </li>
-
-                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-money fa-fw"></i> <span class="nav-label">Fees</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li>
-                                <a href="{{ url('/fee/create')}}">Create Fee</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/fee')}}">View Fees</a>
-                            </li> 
-                            <li>
-                                <a href="{{ url('/fee/balances')}}">View Balances</a>
-                            </li>  
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-money fa-fw"></i> <span class="nav-label">Student Fee</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li>
-                                <a href="{{ url('/student_fee/create')}}">Charge Fee To Student</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/student_fee/payment')}}">Register Payment To Student</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/student_fee')}}">View Fees and Payments</a>
-                            </li> 
-                            <li>
-                                <a href="{{ url('/student_fee/discount')}}">Apply Discount to Student</a>
-                            </li>  
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-pie-chart fa-fw"></i> <span class="nav-label">Dashboard</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="{{ url('/dashboard')}}">Dashboard</a>
-                            </li>                            
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                @elseif(auth()->user()->user_type_id == 6)                
-
-                    <li>
-                        <a href="{{ url('/lecturer')}}"><i class="fa fa-table fa-fw"></i><span class="nav-label">Current Courses</span><span class="fa arrow"></span></a>
-                    </li>
-
-                @elseif(auth()->user()->user_type_id == 9)
-
-                    <li style="display: none;">
-                        <a href="{{ url('/student_intake/set_intake')}}"></i> Set Intake</a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('/course_student/create')}}"></i> Self Registration</a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('/student_intake/select_specialisation')}}"></i> Select Specialisaion</a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('/student')}}"></i> View Current Progress</a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('/student/progress')}}"></i> View Complete Progress</a>
+                        <a href="{{ url('/registration/create')}}"><i class="fa fa-hourglass fa-fw"></i><span class="nav-label">Renew Membership</span></a>
                     </li>
 
                 @endif
 
-                @endauth
+                <li>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> <span class="nav-label">Events</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="{{ url('/occasion/create')}}">Create Event</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/occasion')}}">View Events</a>
+                        </li>
+                        
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
 
-                @show
+            @endauth
+
+            @show
             </ul>
         </div>
     </nav>

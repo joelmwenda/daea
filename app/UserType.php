@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class UserType extends Model
+class UserType extends BaseModel
 {
     //
 }
